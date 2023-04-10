@@ -2,12 +2,13 @@
 import streamlit as st
 import openai
 import pytesseract
+import os
 
 # local modules
 from ocr_engine import image_to_script
 
 #Setup Model
-openai.api_key = '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'
+openai.api_key = os.environ['openai-apikey']
 ocr_engine = "pytesseract"
 
 # Setup session state
