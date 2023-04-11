@@ -3,12 +3,22 @@ import streamlit as st
 import openai
 import pytesseract
 import os
+import json
 
-# local modules
+# local modulesP
 from ocr_engine import image_to_script
 
 #Setup Model
-openai.api_key = os.environ['openai-apikey']
+## Design for streamlit
+try:
+  openai.api_key = os.environ['OPENAI-API-KEY']
+## Design for local run
+except KeyError:
+  from dotenv import load_dotenv
+  load_dotenv()
+  api_key = os.getenv('OPENAI-API-KEY')
+  openai.api_key = api_key
+
 ocr_engine = "pytesseract"
 
 # Setup session state
@@ -20,7 +30,6 @@ st.write(st.session_state.img)
 
 if st.session_state['img'] is not None:
     img = st.session_state['img']
-    st.text(type(img))
     st.image(img)
     
     # Save the uplaoded image as sample_0.jpg

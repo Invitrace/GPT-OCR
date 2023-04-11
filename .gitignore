@@ -1,0 +1,5 @@
+# Optimize
+__pycache__/
+
+# Environments
+.env
