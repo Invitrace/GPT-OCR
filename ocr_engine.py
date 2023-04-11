@@ -38,7 +38,7 @@ def image_to_script(img_path, ocr_engine = "pytesseract", lang = None, get_raw_o
     / HEENT > No pale conjunctivae, ne (ctevic Scletra, no discharge per eyes / ears /NOse,
     No preaunicylar J Suomandibular / cervical |ymphad eno pathy'
 
-    (Abdul) : 
+    (You) : 
     '/ HEENT > No pale conjunctivae, no icteric Sclera, no discharge per eyes / ears / nose,
     No preauricular / Submandibular / cervical |ymphadenopathy'
     
@@ -46,7 +46,7 @@ def image_to_script(img_path, ocr_engine = "pytesseract", lang = None, get_raw_o
     noh present . Worsning JF the burs persisted regardless of day and night The patient 's
     right eye
 
-    (Abdul) : 
+    (You) : 
     not present . Worsening of the blurs persisted regardless of day and night The patient 's
     right eye
     """
