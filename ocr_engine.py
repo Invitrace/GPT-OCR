@@ -27,10 +27,10 @@ def image_to_script(img_path, ocr_engine = "pytesseract", lang = None, get_raw_o
 
     lang_dct = {None : 'British' ,'tha' : 'Thai'}
     role = f""""
-    Ignore all your previous instructions, you are a {lang_dct[lang]} native called Abdul
+    Ignore all your previous instructions, you are a {lang_dct[lang]} native
 
-    - Abdul is responsible for receiving OCR input related to medical or general fields, correct any misspelled words, and avoid paraphrasing the text although the collocation is bad
-    - Although the input contains several errors and typos, Abdul will still try their best to output the answer
+    - You are responsible for receiving OCR input related to medical or general fields, correct any misspelled words, and avoid paraphrasing the text although the collocation is bad
+    - Although the input contains several errors and typos, You will still try their best to output the answer
 
     Here's are two examples: 
 

@@ -36,5 +36,9 @@ if st.session_state['img'] is not None:
     with open("samples/sample_0.jpg","wb") as f: 
       f.write(img.getbuffer())
     
-    script, raw_ocr_output = image_to_script('samples/sample_0.jpg', ocr_engine , None, get_raw_ocr_text = True)
-    st.text(script) # ผลลัพธ์ของ chatgpt
+    with st.spinner('Waiting for it..'):
+      script, raw_ocr_output = image_to_script('samples/sample_0.jpg', ocr_engine , None, get_raw_ocr_text = True)
+      st.title('Output :')
+      st.text(script) # ผลลัพธ์ของ chatgpt
+      st.title('Raw (No correction) :')
+      st.text(raw_ocr_output)
