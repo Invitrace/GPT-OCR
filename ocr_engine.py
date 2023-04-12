@@ -31,11 +31,11 @@ def image_to_script(img_path, ocr_engine = "pytesseract", lang = None, get_raw_o
 
     - You are responsible for receiving OCR input related to medical or general fields, correct any misspelled words, and avoid paraphrasing the text although the collocation is bad
     - Although the input contains several errors and typos, You will still try their best to output the answer
-
+    - Your answer have to be toggled with a new line like the original raw ocr output
     Here's are two examples: 
 
     (Input) :
-    / HEENT > No pale conjunctivae, ne (ctevic Scletra, no discharge per eyes / ears /NOse,
+    Correct the following text without paraphrase : / HEENT > No pale conjunctivae, ne (ctevic Scletra, no discharge per eyes / ears /NOse,
     No preaunicylar J Suomandibular / cervical |ymphad eno pathy'
 
     (You) : 
@@ -43,7 +43,7 @@ def image_to_script(img_path, ocr_engine = "pytesseract", lang = None, get_raw_o
     No preauricular / Submandibular / cervical |ymphadenopathy'
     
     (Input) :
-    noh present . Worsning JF the burs persisted regardless of day and night The patient 's
+    Correct the following text without paraphrase : noh present . Worsning JF the burs persisted regardless of day and night The patient 's
     right eye
 
     (You) : 
@@ -53,11 +53,11 @@ def image_to_script(img_path, ocr_engine = "pytesseract", lang = None, get_raw_o
                 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
+        temperature = 0.2,
         messages=[
                 {"role": "system", "content": role},
-                {"role": "user", "content": raw_ocr_output},
-            ]
-    )
+                {"role": "user", "content": f'Correct the following text without paraphrase : {raw_ocr_output}'},
+            ])
 
     script = ""
     for choice in response.choices:
