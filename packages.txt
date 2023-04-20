@@ -1,4 +1,4 @@
-tesseract-ocr=5.0.0
+tesseract
 ffmpeg 
 libsm6 
 libxext6
