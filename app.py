@@ -7,7 +7,8 @@ import json
 
 # local modulesP
 from ocr_engine import image_to_script
-
+cmd_tesserect = pytesseract.pytesseract.tesseract_cmd
+st.text(cmd_tesserect)
 #Setup Model
 ## Design for streamlit
 try:
